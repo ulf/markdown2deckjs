@@ -13,6 +13,8 @@ After I saw deck.js recently, I immediatelly liked the look and feel of it. What
 * markdown
 * jinja2
 
+Install by using Pip: `pip install markdown jinja2`
+
 ## How to use
 
 * Get a local copy of deck.js

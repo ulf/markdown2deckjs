@@ -25,13 +25,13 @@ Install by using Pip: `pip install markdown jinja2`
 ### Play-by-play
 
     $ mkdir m2d
-	$ cd m2d
-	$ git clone https://github.com/imakewebthings/deck.js.git
-	# Now setup your local webserver to serve the deck.js/introduction directory
-	$ git clone https://github.com/ulf/markdown2deckjs.git
-	$ cd markdown2deckjs
-	$ ./m2d README.md templates/plain.html "Readme" > ../deck.js/introduction/readme.html
-	# Look at the readme.html file in your browser. Done
+    $ cd m2d
+    $ git clone https://github.com/imakewebthings/deck.js.git
+    # Now setup your local webserver to serve the deck.js/introduction directory
+    $ git clone https://github.com/ulf/markdown2deckjs.git
+    $ cd markdown2deckjs
+    $ ./m2d README.md templates/plain.html "Readme" > ../deck.js/introduction/readme.html
+    # Look at the readme.html file in your browser. Done
 
 ## How do I create my slides?
 
@@ -57,8 +57,9 @@ The python markdown module offers a broad scope for writing extensions. I found 
 
 ## Differences to markdown
 
-I added a little feature to make slides more interactive. If your text elements end with `~`, the char is stripped and the element is instead given the `slide` class, which has the effect that the element will not be shown initially. Instead, you need to advance the slide to show the element. This seemed to be te easiest way to construct incremental slides.
+I added a little feature to make slides more interactive. If your text elements end with a tilde, the char is stripped and the element is instead given the `slide` class, which has the effect that the element will not be shown initially. Instead, you need to advance the slide to show the element. This seemed to be te easiest way to construct incremental slides.
 
 ## I want to extend this
 
 Feel free! Just fork or get in touch if you like, there might be a lot of ways to make this better.
+

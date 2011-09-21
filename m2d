@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+
+import markdown
+import sys
+import jinja2
+import codecs
+
+# Check if there are enough arguments
+if len(sys.argv) < 3:
+    print "Usage: md2 <input.md> <template.html> [<title>]"
+    sys.exit()
+# Set title if supplied
+elif len(sys.argv) > 3:
+    title = sys.argv[3].decode('utf-8')
+else:
+    title = 'untitled'
+
+# Generate markdown from input file
+html = markdown.markdown(codecs.open(sys.argv[1], mode="r", encoding="utf-8").read(),
+                         # Use extensions to create proper slides
+                         extensions=['slider'])
+
+# Open Template supplied as argument
+t = jinja2.Template(open(sys.argv[2]).read())
+# Render template with content and title
+text = t.render(**{ 'content' : html,
+                    'title' : title })
+
+# Print to STDOUT, use file redirection to save actual HTML file
+print text.encode('utf-8')

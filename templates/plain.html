@@ -62,5 +62,24 @@
 <script src="../extensions/navigation/deck.navigation.js"></script>
 <script src="../extensions/hash/deck.hash.js"></script>
 
+<script type="text/javascript">
+$(function() {
+	// Deck initialization
+	$.deck('.slide');
+	
+	$('#style-themes').change(function() {
+		$('#style-theme-link').attr('href', $(this).val());
+	});
+	
+	$('#transition-themes').change(function() {
+		$('#transition-theme-link').attr('href', $(this).val());
+	});
+
+    $('pre').click(function (){
+	$(this).toggleClass('highlighted');
+    });
+});
+</script>
+
 </body>
 </html>

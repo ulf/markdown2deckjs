@@ -14,9 +14,10 @@ class SlideProcessor(markdown.treeprocessors.Treeprocessor):
         return cont
 
     def create_source(self, root):
-        if root.tag == 'img':
+        if root.tag == 'img' and str(root.get('src'))[:4] == 'http':
             src = etree.Element('cite')
             src.text = 'Quelle: ' + str(root.get('src'))
+            src.set('class', 'source')
             root.append(src)
         for c in root:
             c = self.create_source(c)

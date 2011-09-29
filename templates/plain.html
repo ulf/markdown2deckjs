@@ -10,76 +10,21 @@
 	<title>{{ title }}</title>
 	
 	<meta name="description" content="A jQuery library for modern HTML presentations">
+	<meta name="author" content="Ulf Boegeholz">
 	<meta name="viewport" content="width=1024, user-scalable=no">
 	
 	<!-- Core and extension CSS files -->
-	<link rel="stylesheet" href="../core/deck.core.css">
-	<link rel="stylesheet" href="../extensions/goto/deck.goto.css">
-	<link rel="stylesheet" href="../extensions/menu/deck.menu.css">
-	<link rel="stylesheet" href="../extensions/navigation/deck.navigation.css">
-	<link rel="stylesheet" href="../extensions/status/deck.status.css">
-	<link rel="stylesheet" href="../extensions/hash/deck.hash.css">
-	
-	<!-- Theme CSS files (menu swaps these out) -->
-	<link rel="stylesheet" id="style-theme-link" href="../themes/style/web-2.0.css">
-	<link rel="stylesheet" id="transition-theme-link" href="../themes/transition/horizontal-slide.css">
-	
-	<!-- Custom CSS just for this page -->
-	<link rel="stylesheet" href="introduction.css">
-	
-	<script src="../modernizr.custom.js"></script>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body class="deck-container">
 
+<div style="position: absolute; top: 0px; left: -165px">
+<div style="margin-left: 20px; font-size: 0.7em">
+&copy; Ulf B&ouml;geholz | 2011</div>
+<img src="fom.png" /></div>
+
 {{ content }}
-
-<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
-<a href="#" class="deck-next-link" title="Next">&#8594;</a>
-
-<p class="deck-status">
-	<span class="deck-status-current"></span>
-	/
-	<span class="deck-status-total"></span>
-</p>
-
-<form action="." method="get" class="goto-form">
-	<label for="goto-slide">Go to slide:</label>
-	<input type="number" name="slidenum" id="goto-slide">
-	<input type="submit" value="Go">
-</form>
-
-<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
-<script>window.jQuery</script>
-
-<!-- Deck Core and extensions -->
-<script src="../core/deck.core.js"></script>
-<script src="../extensions/menu/deck.menu.js"></script>
-<script src="../extensions/goto/deck.goto.js"></script>
-<script src="../extensions/status/deck.status.js"></script>
-<script src="../extensions/navigation/deck.navigation.js"></script>
-<script src="../extensions/hash/deck.hash.js"></script>
-
-<script type="text/javascript">
-$(function() {
-	// Deck initialization
-	$.deck('.slide');
-	
-	$('#style-themes').change(function() {
-		$('#style-theme-link').attr('href', $(this).val());
-	});
-	
-	$('#transition-themes').change(function() {
-		$('#transition-theme-link').attr('href', $(this).val());
-	});
-
-    $('pre').click(function (){
-	$(this).toggleClass('highlighted');
-    });
-});
-</script>
 
 </body>
 </html>

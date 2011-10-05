@@ -14,7 +14,7 @@ After I saw deck.js recently, I immediatelly liked the look and feel of it. What
 * jinja2
 * elementtree
 
-Install by using Pip: `pip install markdown jinja2`
+Install by using Pip: `pip install markdown jinja2 elementtree`
 
 ## How to use
 

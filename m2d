@@ -4,10 +4,17 @@ import markdown
 import sys
 import jinja2
 import codecs
+from optparse import OptionParser
+import re
+
+parser = OptionParser()
+parser.add_option("-p", "--plain", action="store_true", dest="plain",
+                  help="create downloadable HTML file instead of deck.js slides")
+(options, args) = parser.parse_args()
 
 # Check if there are enough arguments
 if len(sys.argv) < 3:
-    print "Usage: md2 <input.md> <template.html> [<title>]"
+    print "Usage: md2 [-p] <input.md> <template.html> [<title>]"
     sys.exit()
 # Set title if supplied
 elif len(sys.argv) > 3:
@@ -15,8 +22,18 @@ elif len(sys.argv) > 3:
 else:
     title = 'untitled'
 
-# Generate markdown from input file
-html = markdown.markdown(codecs.open(sys.argv[1], mode="r", encoding="utf-8").read(),
+content = codecs.open(sys.argv[1], mode="r", encoding="utf-8").read()
+
+# Check if plain HTML should be generated
+if options.plain:
+    # Now strip all tildes from lineends
+    content = re.sub(re.compile("~\s*$", flags=re.MULTILINE),
+                     "", content)
+    # Do NOT activate the slider extension
+    html = markdown.markdown(content)
+else:
+    # Generate markdown from input file
+    html = markdown.markdown(content,
                          # Use extensions to create proper slides
                          extensions=['slider'])
 

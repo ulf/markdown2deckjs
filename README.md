@@ -50,7 +50,12 @@ will result in a three-slide presentation. Try it:
   
     $ m2d example1.md templates/plain.html "My Test" > ../deck.js/example1.html
 
-	
+
+## Downloadable files
+
+One problem with deck.js is that it is not easily sharable offline. So I added an option to the program which allows for creation of simple HTML files for easy distribution. No slide effects will be applied in the HTML code, as well other control elements (like tilde, see below) will be stripped.
+
+    $ m2d example.md -p templates/download.html "My Test" > downloadable.html
 
 ## Seems like magic. How does it work?
 

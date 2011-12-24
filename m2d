@@ -6,6 +6,7 @@ import jinja2
 import codecs
 from optparse import OptionParser
 import re
+import mdx_slider
 
 parser = OptionParser()
 parser.add_option("-p", "--plain", action="store_true", dest="plain",

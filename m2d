@@ -23,7 +23,10 @@ elif len(sys.argv) > 3:
 else:
     title = 'untitled'
 
-content = codecs.open(sys.argv[1], mode="r", encoding="utf-8").read()
+if sys.argv[1] == '-':
+    content = sys.stdin.read().decode("utf-8")
+else:
+    content = codecs.open(sys.argv[1], mode="r", encoding="utf-8").read()
 
 # Check if plain HTML should be generated
 if options.plain:

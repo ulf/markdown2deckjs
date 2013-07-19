@@ -1,11 +1,11 @@
 import markdown
-from markdown import etree_loader
+from markdown.util import etree
 import sys
 from elementtree.ElementTree import Element, SubElement, dump
 
 class SlideProcessor(markdown.treeprocessors.Treeprocessor):
     def create_slide(self, buf, i):
-        cont = etree_loader.importETree().Element('div')
+        cont = etree.Element('div')
         cont.set('class', 'slide')
         cont.set('id', str(i))
         i += 1
@@ -15,7 +15,7 @@ class SlideProcessor(markdown.treeprocessors.Treeprocessor):
 
     def create_source(self, root):
         if root.tag == 'img' and str(root.get('src'))[:4] == 'http':
-            src = etree_loader.importETree().Element('cite')
+            src = etree.Element('cite')
             src.text = 'Quelle: ' + str(root.get('src'))
             src.set('class', 'source')
             root.append(src)
@@ -49,7 +49,7 @@ class SlideProcessor(markdown.treeprocessors.Treeprocessor):
         if len(buf) > 0:
             nodes.append(self.create_slide(buf,i))
 
-        slide = etree_loader.importETree().Element('div')
+        slide = etree.Element('div')
         for n in nodes:
             slide.append(n)
         return slide
